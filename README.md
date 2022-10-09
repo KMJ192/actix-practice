@@ -21,3 +21,11 @@ cargo watch -x run
 ```
 cargo run
 ```
+
+### wasm
+
+- reference: https://rustwasm.github.io/wasm-bindgen/introduction.html
+
+```
+wasm-pack build --release --target web
+```

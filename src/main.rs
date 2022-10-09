@@ -1,11 +1,6 @@
 use actix_web::{get, post, App, HttpResponse, HttpServer, Responder};
 use actix_files::Files;
 
-use web_sys::console;
-
-pub mod documents;
-use documents::documents::Documents;
-
 
 #[get("/")]
 async fn render() -> impl Responder {
@@ -31,17 +26,8 @@ async fn echo(req_body: String) -> impl Responder {
     HttpResponse::Ok().body(req_body)
 }
 
-fn app() {
-  let documents = Documents::new();
-  let app_node = documents.get_element_by_id(String::from("App"));
-  console::log_1(&"test".into());
-  // println!("{:?}", app_node);
-}
-
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-  // let documents = Documents::new();
-  // let app = documents.get_element_by_id(String::from("App"));
 
   let application = HttpServer::new(|| {
     App::new()
