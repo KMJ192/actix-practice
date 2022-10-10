@@ -1,18 +1,18 @@
-use wasm_bindgen::{JsCast};
+use wasm_bindgen::JsCast;
 use crate::window;
 
 use web_sys::{Window, Document, HtmlElement, HtmlCollection};
 
 #[derive(Debug)]
-pub struct Doc {
+pub struct Documents {
   window: Option<Window>,
   document: Option<Document>,
   main: Option<HtmlElement>
 }
 
-impl Doc {
+impl Documents {
   pub fn new() -> Self {
-    Doc {
+    Documents {
       window: None,
       document: None,
       main: None,

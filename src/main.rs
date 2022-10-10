@@ -1,16 +1,33 @@
+use std::process::Command;
+
 use actix_web::{get, App, HttpResponse, HttpServer, Responder};
 use actix_files::Files;
 
 pub mod render;
-use render::render;
+use render::{RenderParam, render};
 
 #[get("/")]
 async fn root_page() -> impl Responder {
-  HttpResponse::Ok().body(render(String::from("<div>root</div>"), String::from("")))
+  HttpResponse::Ok().body(render(RenderParam {
+    ssr: String::from("<div>root</div>"),
+    meta: String::from(""),
+  }))
 }
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+  if cfg!(target_os = "windows") {
+    Command::new("cmd")
+      .arg("dev.sh")
+      .status()
+      .expect("failed to execute process in window");
+  } else {
+    Command::new("sh")
+      .arg("dev.sh")
+      .status()
+      .expect("failed to execute process in linux");
+  };
+
   let application = HttpServer::new(|| {
     App::new()
       .service(root_page)
@@ -22,3 +39,11 @@ async fn main() -> std::io::Result<()> {
 
   application
 }
+
+// fn main() {
+//   let mut cmd = Command::new("echo");
+//   cmd
+//     .arg("hello")
+//     .status()
+//     .expect("failed to execute process in window");
+// }

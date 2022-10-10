@@ -1,4 +1,9 @@
-pub fn render(component: String, meta: String) -> String {
+pub struct RenderParam {
+  pub ssr: String,
+  pub meta: String,
+}
+
+pub fn render(param: RenderParam) -> String {
   format!(r#"
     <!DOCTYPE html>
     <html lang="en">
@@ -15,5 +20,5 @@ pub fn render(component: String, meta: String) -> String {
       <script src="./src/index.js" type="module"></script>
     </body>
     </html>
-  "#, meta, component)
+  "#, param.meta, param.ssr)
 }
