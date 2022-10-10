@@ -39,11 +39,3 @@ async fn main() -> std::io::Result<()> {
 
   application
 }
-
-// fn main() {
-//   let mut cmd = Command::new("echo");
-//   cmd
-//     .arg("hello")
-//     .status()
-//     .expect("failed to execute process in window");
-// }
