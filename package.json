@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "cd client && wasm-pack build --release --target web && cd .. && cargo watch -x run",
-    "bd:ws": "cd client && wasm-pack build --release --target web && cd ..",
-    "serve:prod": "cd client && wasm-pack build --release --target web && cd .. && cargo run"
+    "serve": "cargo watch -x run"
   },
   "repository": {
     "type": "git",
