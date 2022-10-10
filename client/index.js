@@ -1,3 +1,3 @@
-import wasm from './wasm-module/pkg/wasm_module.js';
+import wasm from './pkg/client.js';
 
 (await wasm()).app();

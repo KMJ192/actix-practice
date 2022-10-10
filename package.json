@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "cd client/wasm-module && wasm-pack build --release --target web && cd ../.. && cargo watch -x run",
-    "bd:ws": "cd client/wasm-module && wasm-pack build --release --target web && cd ../..",
-    "serve:prod": "cd client/wasm-module && wasm-pack build --release --target web && cd ../.. && cargo run"
+    "serve": "cd client && wasm-pack build --release --target web && cd .. && cargo watch -x run",
+    "bd:ws": "cd client && wasm-pack build --release --target web && cd ..",
+    "serve:prod": "cd client && wasm-pack build --release --target web && cd .. && cargo run"
   },
   "repository": {
     "type": "git",

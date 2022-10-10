@@ -1,4 +1,4 @@
-use wasm_bindgen::JsCast;
+use wasm_bindgen::{JsCast};
 use crate::window;
 
 use web_sys::{Window, Document, HtmlElement, HtmlCollection};
@@ -80,12 +80,10 @@ impl Doc {
   }
 
   pub fn test(&self) {
-    if let Some(document) = &self.document {
-      if let Some(node) = &self.main {
-        if let Some(new) = &self.create_element(String::from("div")) {
-          node.append_child(new);
-        }
-      }
-    }
+    if let Some(node) = &self.main {
+      if let Some(new) = &self.create_element(String::from("div")) {
+        node.append_child(new);
+      };
+    };
   }
 }
