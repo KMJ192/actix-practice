@@ -1,0 +1,23 @@
+{
+  "name": "actix-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "cd client/wasm-module && wasm-pack build --release --target web && cd ../.. && cargo watch -x run",
+    "bd:ws": "cd client/wasm-module && wasm-pack build --release --target web && cd ../..",
+    "serve:prod": "cd client/wasm-module && wasm-pack build --release --target web && cd ../.. && cargo run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KMJ192/actix-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KMJ192/actix-practice/issues"
+  },
+  "homepage": "https://github.com/KMJ192/actix-practice#readme"
+}

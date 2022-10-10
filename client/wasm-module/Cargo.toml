@@ -3,23 +3,22 @@ name = "wasm-module"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [lib]
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-wasm-bindgen = { version = "0.2.78", features = ["serde-serialize"] }
+wasm-bindgen = { version = "0.2.83", features = ["serde-serialize"] }
 
 [dependencies.web-sys]
 version = "0.3.55"
 features = [
-  'console',
-  'Document',
+  'Node',
   'Window',
+  'Document',
+  'Element',
   'HtmlElement',
   'HtmlCollection',
-  'Node',
+  'console',
   'NodeList',
   'MouseEvent',
   'History',

@@ -1,9 +1,16 @@
 use wasm_bindgen::prelude::*;
-use wasm_bindgen::JsCast;
-
 use web_sys::*;
+
+pub mod module;
+use module::document::document::Doc;
 
 #[wasm_bindgen]
 pub fn app() {
-  console::log_1(&"test123".into());
+  let mut doc = Doc::new();
+  doc.set_window();
+  doc.set_document();
+  doc.get_main();
+  doc.test();
+  let test = format!("{:#?}", doc.get_elements_by_class_names(String::from("test")));
+  console::log_1(&test.into());
 }
