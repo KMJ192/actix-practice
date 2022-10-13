@@ -13,5 +13,5 @@ pub fn app() {
   doc.test();
   let test = format!("{:#?}", doc.get_elements_by_class_names(String::from("test")));
   console::log_1(&test.into());
-  console::log_1(&"test2".into());
+  // console::log_1(&"test2".into());
 }
