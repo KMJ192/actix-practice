@@ -1,10 +1,12 @@
-use std::process::Command;
-
+use actix_cors::Cors;
 use actix_web::{get, App, HttpResponse, HttpServer, Responder, http::header::{CacheControl, CacheDirective}};
 use actix_files::Files;
 
 pub mod render;
 use render::{RenderParam, render};
+
+// pub mod wasm_builder;
+// use wasm_builder::wasm_builder;
 
 #[get("/")]
 async fn root_page() -> impl Responder {
@@ -14,31 +16,26 @@ async fn root_page() -> impl Responder {
         CacheDirective::NoCache,
         CacheDirective::NoStore,
         CacheDirective::MustRevalidate,
-        // CacheDirective::MaxAge(0)
       ]
     ))
     .body(render(RenderParam {
       ssr: String::from("<div>root</div>"),
-      meta: String::from(""),
+      meta_data: String::from(""),
     }))
 }
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-  if cfg!(target_os = "windows") {
-    Command::new("cmd")
-      .arg("dev.sh")
-      .status()
-      .expect("failed to execute process in window");
-  } else {
-    Command::new("sh")
-      .arg("dev.sh")
-      .status()
-      .expect("failed to execute process in linux");
-  };
+  // wasm_builder()
+
 
   let application = HttpServer::new(|| {
+    let cors = 
+      Cors::default()
+        .allowed_origin("*");
+
     App::new()
+      .wrap(cors)
       .service(root_page)
       .service(Files::new("/src", "./client").index_file("index.js"))
   })

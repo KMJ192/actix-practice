@@ -1,6 +1,6 @@
 pub struct RenderParam {
   pub ssr: String,
-  pub meta: String,
+  pub meta_data: String,
 }
 
 pub fn render(param: RenderParam) -> String {
@@ -20,5 +20,5 @@ pub fn render(param: RenderParam) -> String {
       <script src="./src/index.js" type="module"></script>
     </body>
     </html>
-  "#, param.meta, param.ssr)
+  "#, param.meta_data, param.ssr)
 }
