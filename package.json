@@ -2,9 +2,10 @@
   "name": "actix-practice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./client/index.js",
   "scripts": {
-    "serve": "cargo watch -x run"
+    "serve": "cargo run",
+    "serve:dev": "cargo watch -x run"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/KMJ192/actix-practice/issues"
   },
-  "homepage": "https://github.com/KMJ192/actix-practice#readme"
+  "homepage": "https://github.com/KMJ192/actix-practice#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "type": "module"
 }
