@@ -8,6 +8,9 @@ use render::{RenderParam, render};
 // pub mod wasm_builder;
 // use wasm_builder::wasm_builder;
 
+pub mod lab;
+use lab::response;
+
 #[get("/")]
 async fn root_page() -> impl Responder {
   HttpResponse::Ok()
