@@ -5,11 +5,8 @@ use actix_files::Files;
 pub mod render;
 use render::{RenderParam, render};
 
-// pub mod wasm_builder;
-// use wasm_builder::wasm_builder;
-
-pub mod lab;
-use lab::response;
+pub mod wasm_builder;
+use wasm_builder::wasm_builder;
 
 #[get("/")]
 async fn root_page() -> impl Responder {
@@ -29,16 +26,15 @@ async fn root_page() -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-  // wasm_builder()
-
+  wasm_builder();
 
   let application = HttpServer::new(|| {
-    let cors = 
-      Cors::default()
-        .allowed_origin("*");
+    // let cors = 
+    //   Cors::default()
+    //     .allowed_origin("*");
 
     App::new()
-      .wrap(cors)
+      // .wrap(cors)
       .service(root_page)
       .service(Files::new("/src", "./client").index_file("index.js"))
   })

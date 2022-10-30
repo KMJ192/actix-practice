@@ -6,8 +6,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-client = { path = "./client" }
+# client = { path = "./client" }
 actix = "0.13.0"
 actix-web = "4"
 actix-files = "0.6.2"
-actix-cors = "0.6.3"
+actix-cors = "0.6.4"
