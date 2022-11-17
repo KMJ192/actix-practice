@@ -5,8 +5,8 @@ use actix_files::Files;
 pub mod render;
 use render::{RenderParam, render};
 
-pub mod wasm_builder;
-use wasm_builder::wasm_builder;
+// pub mod wasm_builder;
+// use wasm_builder::wasm_builder;
 
 #[get("/")]
 async fn root_page() -> impl Responder {
@@ -26,7 +26,7 @@ async fn root_page() -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-  wasm_builder();
+  // wasm_builder();
 
   let application = HttpServer::new(|| {
     // let cors = 
